@@ -13,6 +13,7 @@ end
 ```
 
 Or alternatively:
+
 ```
 class AvatarUploader < CarrierWave::Uploader::Base
 	storage :sftp
