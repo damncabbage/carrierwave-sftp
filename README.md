@@ -9,18 +9,12 @@ CarrierWave.configure do |config|
 	config.storage = :sftp
 	config.sftp_user = "example"
 	config.sftp_host = "hostname.example.com"
+	config.sftp_base_path = "/var/www/hostname/foobar"
+
 	config.ssh_options = { :password => 'pleasedontusethis' }
-end
-```
 
-Or alternatively:
-
-```
-class AvatarUploader < CarrierWave::Uploader::Base
-	storage :sftp
-	config.sftp_user = "example"
-	config.sftp_host = "hostname.example.com"
-	config.ssh_options = { :keys => ['/path/to/your/id_rsa'] }
+	# Or use SSH keys instead (recommended):
+	# config.ssh_options = { :keys => ['/path/to/your/id_rsa'] }
 end
 ```
 

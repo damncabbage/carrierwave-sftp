@@ -54,6 +54,12 @@ module CarrierWave
           def connection
             @base.connection
           end
+
+          def full_remote_path
+            remote_path   = ::File.join(@uploader.sftp_base_path, self.path) if @uploader.sftp_base_path
+            remote_path ||= self.path
+            remote_path
+          end
       end
 
       #
@@ -77,3 +83,12 @@ module CarrierWave
     end # SFTP
   end # Storage
 end # CarrierWave
+
+# Add the :sftp shortcut
+CarrierWave::Uploader::Base.storage_engines[:sftp] = "CarrierWave::Storage::SFTP"
+
+# And the config options
+CarrierWave::Uploader::Base.add_config :sftp_host
+CarrierWave::Uploader::Base.add_config :sftp_user
+CarrierWave::Uploader::Base.add_config :sftp_base_path
+CarrierWave::Uploader::Base.add_config :ssh_options
