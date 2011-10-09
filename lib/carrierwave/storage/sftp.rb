@@ -36,17 +36,17 @@ module CarrierWave
 
         # Read remote file contents
         def read
-          raise "Not Implemented"
+          connection.open(full_remote_path).read
         end
 
         # URL to remote file
         def url
           # HACK: Revisit and make configurable separate from the connection options.
-          "http://#{sftp_host}/#{path}"
+          "http://#{@uploader.sftp_host}/#{path}"
         end
 
         def store(file)
-          raise "Not Implemented"
+          connection.upload!(file.path, full_remote_path)
         end
 
         protected
@@ -77,7 +77,7 @@ module CarrierWave
       end
 
       def connection
-        @connection ||= ::Net::SFTP.new(uploader.sftp_host, uploader.sftp_user, uploader.ssh_options)
+        @connection ||= ::Net::SFTP.start(uploader.sftp_host, uploader.sftp_user, uploader.ssh_options)
       end
 
     end # SFTP
