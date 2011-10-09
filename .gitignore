@@ -1,2 +1,11 @@
 .bundle
 vendor/bundler
+
+# The usual suspects
+Thumbs.db
+Desktop.ini
+__MACOSX
+.DS_Store
+*.swp
+*~
+*.bak
