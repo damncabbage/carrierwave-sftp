@@ -1,5 +1,9 @@
 # CarrierWave SFTP
 
+## A Brief Warning
+
+This is very much alpha-quality software; error conditions aren't exactly handled very gracefully at the moment.
+
 ## Usage
 
 Here's a plain example using a username / password combination:
@@ -23,7 +27,7 @@ end
 
 ## Licence
 
-&copy; 2011 Robert Howard. Unhyperbole is distributed under an [MIT Licence](http://en.wikipedia.org/wiki/MIT_License).
+&copy; 2011 Robert Howard. CarrierWave SFTP is distributed under an [MIT Licence](http://en.wikipedia.org/wiki/MIT_License).
 
 
 
